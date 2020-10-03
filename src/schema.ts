@@ -12,8 +12,7 @@ const resolvers: IResolvers = {
         }
     }
 }
-const schema: GraphQLSchema = addResolversToSchema({
-    resolvers, schema: loadSchemaSync(join(__dirname, 'schema.graphql'), {loaders: [new GraphQLFileLoader()]})
-});
+const schema = loadSchemaSync(join(__dirname, 'schema.graphql'), {loaders: [new GraphQLFileLoader()]});
+const ResolvableSchema: GraphQLSchema = addResolversToSchema({resolvers, schema});
 
-export default schema;
+export default ResolvableSchema;
